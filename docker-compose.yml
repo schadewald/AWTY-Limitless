@@ -9,8 +9,7 @@ services:
     scheduler:
         image: apache/airflow
         command: scheduler
-        restart_policy:
-            condition: on-failure
+        restart: on-failure
         depends_on:
             - postgres
         env_file:
@@ -21,8 +20,7 @@ services:
     webserver:
         image: apache/airflow
         entrypoint: ./scripts/entrypoint.sh
-        restart_policy:
-            condition: on-failure
+        restart: on-failure
         depends_on:
             - postgres
             - scheduler
