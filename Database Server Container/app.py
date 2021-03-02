@@ -8,7 +8,7 @@ app = Flask(__name__)
 # test server
 @app.route('/')
 def test():
-    return "flask mongodb atlas is running!"
+    return "Database server is running!"
 
 
 # test to insert sample data to the data base
@@ -17,7 +17,7 @@ def update_db():
     with open('sampleData.json') as file:
         file_data = json.load(file)
     db.db.NBA.insert(file_data)
-    return "Connected to the data base!"
+    return "Updated the data base!"
 
 
 # this can be used each time the database is reset with up to date stats
@@ -41,4 +41,4 @@ def retrieve_db():
 
 
 if __name__ == '__main__':
-    app.run(port=4321)
+    app.run(host='0.0.0.0', port=4321)
