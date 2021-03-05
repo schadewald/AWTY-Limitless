@@ -90,3 +90,10 @@ services:
             # - POSTGRES_DB=airflow
             # - REDIS_PASSWORD=redispass
         command: worker
+
+    nbadb:
+        build: ./DatabaseServerContainer
+        ports:
+            - "4321:4321"
+        volumes:
+            - ./DatabaseServerContainer:/DatabaseServerContainer
