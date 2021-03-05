@@ -6,17 +6,16 @@ With the sports analytics and sports betting industry booming in recent years, t
 
 <b>To run our project:</b>
 
-1. Database service
-   1. cd into Database Server Container
-   2. Build to Docker image.
-      1. <i>sudo docker build -t database:latest .</i>
-      2. <i>sudo docker run -p 4321:4321 database</i>
-   3. Open a browser and visit http://localhost:4321/ to check if service is running.
-      1. Load DB with dummy dataset.
-         1. http://localhost:4321/db/update
-      2. View dataset.
-         1. http://localhost:4321/db/retrieve
-      3. Clear all data.
-         1. http://localhost:4321/db/clear
-   4. Turn off database service.
-      1. CTRL c
+1. cd into the project directory.
+2. sudo docker-compose up
+   1. Airflow Access
+      1. Admin http://localhost:8080/admin/ 
+      2. Flower http://localhost:5555
+   1. NBA database MongoDB
+      1. Server Test http://localhost:4321/ 
+      2. Load DB with dummy dataset. http://localhost:4321/db/update
+      3. View dataset. http://localhost:4321/db/retrieve
+      4. Clear all data. http://localhost:4321/db/clear
+3. Turn off services.
+   1. CTRL c
+   2. sudo docker-compose down
