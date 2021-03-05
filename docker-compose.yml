@@ -97,3 +97,10 @@ services:
             - "4321:4321"
         volumes:
             - ./DatabaseServerContainer:/DatabaseServerContainer
+
+    dashboard:
+        build: ./ClientServerContainer
+        ports:
+            - "8050:8050"
+        volumes:
+            - ./ClientServerContainer:/ClientServerContainer
