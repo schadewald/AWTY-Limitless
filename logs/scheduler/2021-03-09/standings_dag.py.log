@@ -1,0 +1,14 @@
+[2021-03-09 09:38:47,720] {scheduler_job.py:182} INFO - Started process (PID=24740) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:38:47,720] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-09 09:38:47,720] {logging_mixin.py:104} INFO - [2021-03-09 09:38:47,720] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:38:48,095] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['extract_standings']) retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:38:48,098] {logging_mixin.py:104} INFO - [2021-03-09 09:38:48,098] {dag.py:1818} INFO - Sync 1 DAGs
+[2021-03-09 09:38:48,122] {logging_mixin.py:104} INFO - [2021-03-09 09:38:48,121] {dag.py:2273} INFO - Setting next_dagrun for extract_standings to 2021-01-01T00:00:00+00:00
+[2021-03-09 09:38:48,125] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.406 seconds
+[2021-03-09 09:39:19,301] {scheduler_job.py:182} INFO - Started process (PID=24751) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:39:19,302] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-09 09:39:19,302] {logging_mixin.py:104} INFO - [2021-03-09 09:39:19,302] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:39:19,554] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['extract_standings']) retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-09 09:39:19,576] {logging_mixin.py:104} INFO - [2021-03-09 09:39:19,576] {dag.py:1818} INFO - Sync 1 DAGs
+[2021-03-09 09:39:19,584] {logging_mixin.py:104} INFO - [2021-03-09 09:39:19,584] {dag.py:2273} INFO - Setting next_dagrun for extract_standings to 2021-01-01T00:00:00+00:00
+[2021-03-09 09:39:19,587] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.287 seconds

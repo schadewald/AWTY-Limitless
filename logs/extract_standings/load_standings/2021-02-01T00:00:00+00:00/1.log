@@ -1,0 +1,35 @@
+[2021-03-09 09:43:49,335] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.load_standings 2021-02-01T00:00:00+00:00 [queued]>
+[2021-03-09 09:43:49,340] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.load_standings 2021-02-01T00:00:00+00:00 [queued]>
+[2021-03-09 09:43:49,340] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-09 09:43:49,340] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2021-03-09 09:43:49,340] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-09 09:43:49,345] {taskinstance.py:1063} INFO - Executing <Task(BashOperator): load_standings> on 2021-02-01T00:00:00+00:00
+[2021-03-09 09:43:49,348] {standard_task_runner.py:52} INFO - Started process 25092 to run task
+[2021-03-09 09:43:49,356] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'extract_standings', 'load_standings', '2021-02-01T00:00:00+00:00', '--job-id', '68', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/standings_dag.py', '--cfg-path', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmp0lg58pw5', '--error-file', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmp8a63e0xj']
+[2021-03-09 09:43:49,357] {standard_task_runner.py:77} INFO - Job 68: Subtask load_standings
+[2021-03-09 09:43:49,387] {logging_mixin.py:104} INFO - Running <TaskInstance: extract_standings.load_standings 2021-02-01T00:00:00+00:00 [running]> on host 25.1.168.192.in-addr.arpa
+[2021-03-09 09:43:49,419] {taskinstance.py:1255} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=AWTY
+AIRFLOW_CTX_DAG_ID=extract_standings
+AIRFLOW_CTX_TASK_ID=load_standings
+AIRFLOW_CTX_EXECUTION_DATE=2021-02-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-02-01T00:00:00+00:00
+[2021-03-09 09:43:49,420] {bash.py:135} INFO - Tmp dir root location: 
+ /var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T
+[2021-03-09 09:43:49,421] {bash.py:158} INFO - Running command: curl --header "Content-Type: application/json" --request POST --data @./standings_dump.json http://127.0.0.1:4321/db/update
+[2021-03-09 09:43:49,432] {bash.py:169} INFO - Output:
+[2021-03-09 09:43:49,441] {bash.py:173} INFO - Warning: Couldn't read data from file "./standings_dump.json", this makes an
+[2021-03-09 09:43:49,442] {bash.py:173} INFO - Warning: empty POST.
+[2021-03-09 09:43:49,443] {bash.py:173} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2021-03-09 09:43:49,443] {bash.py:173} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2021-03-09 09:43:49,445] {bash.py:173} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   192  100   192    0     0  64000      0 --:--:-- --:--:-- --:--:-- 64000
+[2021-03-09 09:43:49,445] {bash.py:173} INFO - <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+[2021-03-09 09:43:49,446] {bash.py:173} INFO - <title>400 Bad Request</title>
+[2021-03-09 09:43:49,446] {bash.py:173} INFO - <h1>Bad Request</h1>
+[2021-03-09 09:43:49,447] {bash.py:173} INFO - <p>The browser (or proxy) sent a request that this server could not understand.</p>
+[2021-03-09 09:43:49,447] {bash.py:177} INFO - Command exited with return code 0
+[2021-03-09 09:43:49,464] {taskinstance.py:1159} INFO - Marking task as SUCCESS. dag_id=extract_standings, task_id=load_standings, execution_date=20210201T000000, start_date=20210309T154349, end_date=20210309T154349
+[2021-03-09 09:43:49,475] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-03-09 09:43:49,496] {local_task_job.py:146} INFO - Task exited with return code 0
