@@ -1,0 +1,56 @@
+[2021-03-08 12:13:47,669] {scheduler_job.py:182} INFO - Started process (PID=2440) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:13:47,669] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-08 12:13:47,670] {logging_mixin.py:104} INFO - [2021-03-08 12:13:47,670] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:13:48,119] {logging_mixin.py:104} INFO - [2021-03-08 12:13:48,118] {dagbag.py:305} ERROR - Failed to import: /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+Traceback (most recent call last):
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/env/lib/python3.8/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py", line 6, in <module>
+    import db as db
+ModuleNotFoundError: No module named 'db'
+[2021-03-08 12:13:48,119] {scheduler_job.py:641} WARNING - No viable dags retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:13:48,206] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.538 seconds
+[2021-03-08 12:14:51,727] {scheduler_job.py:182} INFO - Started process (PID=2524) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:14:51,727] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-08 12:14:51,728] {logging_mixin.py:104} INFO - [2021-03-08 12:14:51,728] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:14:51,992] {logging_mixin.py:104} INFO - [2021-03-08 12:14:51,991] {dagbag.py:305} ERROR - Failed to import: /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+Traceback (most recent call last):
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/env/lib/python3.8/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py", line 6, in <module>
+    import db as db
+ModuleNotFoundError: No module named 'db'
+[2021-03-08 12:14:51,992] {scheduler_job.py:641} WARNING - No viable dags retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:14:52,056] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.330 seconds
+[2021-03-08 12:15:52,495] {scheduler_job.py:182} INFO - Started process (PID=2598) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:15:52,496] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-08 12:15:52,496] {logging_mixin.py:104} INFO - [2021-03-08 12:15:52,496] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:15:52,770] {logging_mixin.py:104} INFO - [2021-03-08 12:15:52,770] {dagbag.py:305} ERROR - Failed to import: /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+Traceback (most recent call last):
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/env/lib/python3.8/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py", line 6, in <module>
+    import db as db
+ModuleNotFoundError: No module named 'db'
+[2021-03-08 12:15:52,770] {scheduler_job.py:641} WARNING - No viable dags retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:15:52,836] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.341 seconds
+[2021-03-08 12:16:52,882] {scheduler_job.py:182} INFO - Started process (PID=2670) to work on /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:16:52,883] {scheduler_job.py:629} INFO - Processing file /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py for tasks to queue
+[2021-03-08 12:16:52,883] {logging_mixin.py:104} INFO - [2021-03-08 12:16:52,883] {dagbag.py:448} INFO - Filling up the DagBag from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:16:53,139] {logging_mixin.py:104} INFO - [2021-03-08 12:16:53,138] {dagbag.py:305} ERROR - Failed to import: /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+Traceback (most recent call last):
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/env/lib/python3.8/site-packages/airflow/models/dagbag.py", line 302, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py", line 6, in <module>
+    import db as db
+ModuleNotFoundError: No module named 'db'
+[2021-03-08 12:16:53,139] {scheduler_job.py:641} WARNING - No viable dags retrieved from /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py
+[2021-03-08 12:16:53,206] {scheduler_job.py:190} INFO - Processing /Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer/dags/standings_dag.py took 0.325 seconds
