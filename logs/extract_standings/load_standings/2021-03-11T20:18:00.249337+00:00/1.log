@@ -1,0 +1,30 @@
+[2021-03-11 14:18:05,801] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.load_standings 2021-03-11T20:18:00.249337+00:00 [queued]>
+[2021-03-11 14:18:05,805] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.load_standings 2021-03-11T20:18:00.249337+00:00 [queued]>
+[2021-03-11 14:18:05,805] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-11 14:18:05,806] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2021-03-11 14:18:05,806] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-11 14:18:05,810] {taskinstance.py:1063} INFO - Executing <Task(BashOperator): load_standings> on 2021-03-11T20:18:00.249337+00:00
+[2021-03-11 14:18:05,813] {standard_task_runner.py:52} INFO - Started process 58789 to run task
+[2021-03-11 14:18:05,819] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'extract_standings', 'load_standings', '2021-03-11T20:18:00.249337+00:00', '--job-id', '178', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/standings_dag.py', '--cfg-path', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmplmlywali', '--error-file', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmpb7yyra5q']
+[2021-03-11 14:18:05,821] {standard_task_runner.py:77} INFO - Job 178: Subtask load_standings
+[2021-03-11 14:18:05,848] {logging_mixin.py:104} INFO - Running <TaskInstance: extract_standings.load_standings 2021-03-11T20:18:00.249337+00:00 [running]> on host 25.1.168.192.in-addr.arpa
+[2021-03-11 14:18:05,871] {taskinstance.py:1255} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=AWTY
+AIRFLOW_CTX_DAG_ID=extract_standings
+AIRFLOW_CTX_TASK_ID=load_standings
+AIRFLOW_CTX_EXECUTION_DATE=2021-03-11T20:18:00.249337+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-03-11T20:18:00.249337+00:00
+[2021-03-11 14:18:05,872] {bash.py:135} INFO - Tmp dir root location: 
+ /var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T
+[2021-03-11 14:18:05,872] {bash.py:158} INFO - Running command: curl --header "Content-Type: application/json" --request POST --data @/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer//standings_dump.json http://127.0.0.1:4321/db/update
+[2021-03-11 14:18:05,880] {bash.py:169} INFO - Output:
+[2021-03-11 14:18:05,888] {bash.py:173} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2021-03-11 14:18:05,889] {bash.py:173} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2021-03-11 14:18:06,100] {bash.py:173} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 63954    0     0  100 63954      0   309k --:--:-- --:--:-- --:--:--  307k100 63971  100    17  100 63954     80   295k --:--:-- --:--:-- --:--:--  294k
+[2021-03-11 14:18:06,102] {bash.py:173} INFO - Data Base Updated
+[2021-03-11 14:18:06,103] {bash.py:177} INFO - Command exited with return code 0
+[2021-03-11 14:18:06,129] {taskinstance.py:1159} INFO - Marking task as SUCCESS. dag_id=extract_standings, task_id=load_standings, execution_date=20210311T201800, start_date=20210311T201805, end_date=20210311T201806
+[2021-03-11 14:18:06,147] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-03-11 14:18:06,178] {local_task_job.py:146} INFO - Task exited with return code 0

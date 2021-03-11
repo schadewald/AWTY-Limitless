@@ -96,7 +96,7 @@ services:
         ports:
             - "4321:4321"
         volumes:
-            - ./DatabaseServerContainer:/DatabaseServerContainer
+            - ./DatabaseServerContainer:/usr/local/airflow/dags
 
     dashboard:
         build: ./ClientServerContainer

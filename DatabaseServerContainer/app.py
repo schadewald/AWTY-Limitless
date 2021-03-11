@@ -27,7 +27,7 @@ def update_db_test():
 def update_db():
     data = request.get_json()
     #below clears db before new data / this needs to be removed when not in development
-    db.db.NBA.remove({})
+    #db.db.NBA.remove({})
     db.db.NBA.insert(data)
     return "Data Base Updated"
 

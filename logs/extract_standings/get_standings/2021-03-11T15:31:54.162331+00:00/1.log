@@ -1,0 +1,23 @@
+[2021-03-11 09:31:56,787] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.get_standings 2021-03-11T15:31:54.162331+00:00 [queued]>
+[2021-03-11 09:31:56,791] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: extract_standings.get_standings 2021-03-11T15:31:54.162331+00:00 [queued]>
+[2021-03-11 09:31:56,792] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-11 09:31:56,792] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2021-03-11 09:31:56,792] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2021-03-11 09:31:56,798] {taskinstance.py:1063} INFO - Executing <Task(PythonOperator): get_standings> on 2021-03-11T15:31:54.162331+00:00
+[2021-03-11 09:31:56,800] {standard_task_runner.py:52} INFO - Started process 50990 to run task
+[2021-03-11 09:31:56,807] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'extract_standings', 'get_standings', '2021-03-11T15:31:54.162331+00:00', '--job-id', '161', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/standings_dag.py', '--cfg-path', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmpm4ipouxq', '--error-file', '/var/folders/n1/tvvct6mn75xbwwwl4s02tfdc0000gn/T/tmpv64kvjcj']
+[2021-03-11 09:31:56,809] {standard_task_runner.py:77} INFO - Job 161: Subtask get_standings
+[2021-03-11 09:31:56,838] {logging_mixin.py:104} INFO - Running <TaskInstance: extract_standings.get_standings 2021-03-11T15:31:54.162331+00:00 [running]> on host 25.1.168.192.in-addr.arpa
+[2021-03-11 09:31:56,862] {taskinstance.py:1255} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=AWTY
+AIRFLOW_CTX_DAG_ID=extract_standings
+AIRFLOW_CTX_TASK_ID=get_standings
+AIRFLOW_CTX_EXECUTION_DATE=2021-03-11T15:31:54.162331+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-03-11T15:31:54.162331+00:00
+[2021-03-11 09:31:57,364] {logging_mixin.py:104} INFO - Extracted standings from NBA-API
+[2021-03-11 09:31:57,365] {python.py:118} INFO - Done. Returned value was: Populated json_file...
+[2021-03-11 09:31:57,379] {taskinstance.py:1159} INFO - Marking task as SUCCESS. dag_id=extract_standings, task_id=get_standings, execution_date=20210311T153154, start_date=20210311T153156, end_date=20210311T153157
+[2021-03-11 09:31:57,429] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-03-11 09:31:57,461] {local_task_job.py:146} INFO - Task exited with return code 0
