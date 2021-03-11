@@ -9,15 +9,18 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import base64
+import requests
 import pandas as pd
 
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
 
-standings = leaguestandings.LeagueStandings(season='2020-21')
-df_standings = standings.get_data_frames()[0]
-df_cleaned_standings = df_standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
-                                     'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
+response = requests.get("http://127.0.0.1:4321/db/retrieve")
+
+standings_json = response.json()
+standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
+df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
+                                  'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
 df_west_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'West']
 df_east_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'East']
 
