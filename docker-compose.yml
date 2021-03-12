@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.7'
 services:
   nbadb:
     build: ./DatabaseServerContainer
@@ -6,10 +6,59 @@ services:
     volumes:
       - ./DatabaseServerContainer:/DatabaseServerContainer
 
+  airflow_postgres:
+    image: postgres:9.6.2
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    ports:
+      - "5432:5432"
+
+  airflow_initdb:
+    build: ./DataServerContainer
+    depends_on:
+      - airflow_postgres
+      - nbadb
+    volumes:
+      - ./DataServerContainer/airflow.cfg:/usr/local/airflow/airflow.cfg
+      - ./DataServerContainer/variables:/usr/local/airflow/variables
+    command:
+      - /bin/bash
+      - -c
+      - |
+        airflow initdb
+        if [[ -e /usr/local/airflow/variables/dev/all.json ]]; then
+            airflow variables -i /usr/local/airflow/variables/dev/all.json
+        fi
+        # Enable this if you choose to have RBAC UI activated in the webserver
+        # airflow create_user -r Admin -u airflow -e airflow@airflow.com -f Air -l Flow -p airflow
+
+  airflow_webserver:
+    build: ./DataServerContainer
+    restart: always
+    depends_on:
+      - airflow_initdb
+      - nbadb
+    volumes:
+      - ./DataServerContainer/airflow.cfg:/usr/local/airflow/airflow.cfg
+      - ./DataServerContainer/dags:/usr/local/airflow/dags
+      - ./DataServerContainer/plugins:/usr/local/airflow/plugins
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+    command: webserver
+    healthcheck:
+      test: [ "CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
   dashboard:
     build: ./ClientServerContainer
     depends_on:
       - nbadb
+      - airflow_webserver
     network_mode: "host"
     volumes:
       - ./ClientServerContainer:/ClientServerContainer
