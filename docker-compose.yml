@@ -12,6 +12,8 @@ services:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow
+    volumes:
+      - "airflow_dbdata:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
 
@@ -62,3 +64,6 @@ services:
     network_mode: "host"
     volumes:
       - ./ClientServerContainer:/ClientServerContainer
+
+volumes:
+  airflow_dbdata:
