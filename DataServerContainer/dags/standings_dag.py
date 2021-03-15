@@ -1,7 +1,7 @@
 from airflow import DAG
 
-from airflow.operators.python import PythonOperator
-from airflow.operators.bash import BashOperator
+from airflow.operators.python_operator import PythonOperator
+from airflow.operators.bash_operator import BashOperator
 
 from datetime import datetime
 from nba_api.stats.endpoints import leaguestandings
@@ -37,7 +37,7 @@ get_standings_task = PythonOperator(
 
 load_standings_task = BashOperator(
     task_id='load_standings',
-    bash_command='curl --header "Content-Type: application/json" --request POST --data @/Users/garymarmon/PycharmProjects/AWTY-Limitless/DataServerContainer//standings_dump.json http://127.0.0.1:4321/db/update',
+    bash_command='curl --header "Content-Type: application/json" --request POST --data @./standings_dump.json http://nbadb:4321/db/update',
     dag=standings_dag
 )
 

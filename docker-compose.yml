@@ -2,7 +2,8 @@ version: '3.7'
 services:
   nbadb:
     build: ./DatabaseServerContainer
-    network_mode: "host"
+    ports:
+      - "4321:4321"
     volumes:
       - ./DatabaseServerContainer:/DatabaseServerContainer
 
@@ -61,7 +62,8 @@ services:
     depends_on:
       - nbadb
       - airflow_webserver
-    network_mode: "host"
+    ports:
+      - "8050:8050"
     volumes:
       - ./ClientServerContainer:/ClientServerContainer
 
