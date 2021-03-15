@@ -8,7 +8,7 @@ from common.stringcase import snake_case
 class SomethingToSomethingOperator(BaseOperator, SkipMixin):
     @apply_defaults
     def __init__(
-        self, *args, **kwargs,
+            self, *args, **kwargs,
     ):
         super(SomethingToSomethingOperator, self).__init__(*args, **kwargs)
 

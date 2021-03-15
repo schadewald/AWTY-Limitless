@@ -7,13 +7,11 @@ from datetime import datetime
 from nba_api.stats.endpoints import leaguestandings
 import json
 
-
 default_args = {
     'owner': 'AWTY',
     'start_date': datetime(2021, 1, 1),
     'retries': 2
 }
-
 
 standings_dag = DAG('extract_standings', default_args=default_args, schedule_interval='0 0 * * *')
 

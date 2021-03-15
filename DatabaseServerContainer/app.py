@@ -26,7 +26,7 @@ def update_db_test():
 @app.route('/db/update', methods=['POST'])
 def update_db():
     data = request.get_json()
-    #below clears db before new data / this needs to be removed when not in development
+    # below clears db before new data / this needs to be removed when not in development
     db.db.NBA.remove({})
     db.db.NBA.insert(data)
     return "Data Base Updated"
