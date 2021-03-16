@@ -1,8 +1,6 @@
 from airflow import DAG
-
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
-
 from datetime import datetime
 from nba_api.stats.endpoints import leaguestandings
 import json
