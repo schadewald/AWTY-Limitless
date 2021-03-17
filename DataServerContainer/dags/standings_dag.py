@@ -35,7 +35,7 @@ get_standings_task = PythonOperator(
 
 load_standings_task = BashOperator(
     task_id='load_standings',
-    bash_command='curl --header "Content-Type: application/json" --request POST --data @./standings_dump.json http://nbadb:4321/db/update',
+    bash_command='curl --header "Content-Type: application/json" --request POST --data @/usr/local/airflow/standings_dump.json http://nbadb:4321/db/update',
     dag=standings_dag
 )
 
