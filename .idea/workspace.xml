@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64192e37-a7de-4038-8d38-94fc71c3dd42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ClientServerContainer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ClientServerContainer/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientServerContainer/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClientServerContainer/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientServerContainer/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClientServerContainer/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataServerContainer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/DataServerContainer/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataServerContainer/standings_dump.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +12,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1p1kxVXFGVIcZVsQi8pgdjpxmXu" />
@@ -24,6 +29,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -34,7 +40,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614358231683</updated>
+      <workItem from="1617026195397" duration="1750000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
