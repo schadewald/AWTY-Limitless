@@ -15,7 +15,7 @@ import pandas as pd
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
 
-response = requests.get("http://127.0.0.1:4321/db/retrieve")
+response = requests.get("http://nbadb:4321/db/retrieve")
 
 standings_json = response.json()
 standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
