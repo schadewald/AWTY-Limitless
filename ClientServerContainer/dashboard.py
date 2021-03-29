@@ -15,15 +15,6 @@ import pandas as pd
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
 
-response = requests.get("http://nbadb:4321/db/retrieve")
-
-standings_json = response.json()
-standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
-df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
-                                  'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
-df_west_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'West']
-df_east_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'East']
-
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
@@ -73,6 +64,16 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
+
+    response = requests.get("http://nbadb:4321/db/retrieve")
+
+    standings_json = response.json()
+    standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
+    df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
+                                      'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
+    df_west_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'West']
+    df_east_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'East']
+
     if pathname == "/":
         # return html.P("This is the content of the home page!")
         return html.P("Welcome to AWTY!")
