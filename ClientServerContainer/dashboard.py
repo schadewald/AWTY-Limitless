@@ -65,7 +65,7 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
 
-    response = requests.get("http://nbadb:4321/db/retrieve")
+    response = requests.get("http://gateway:9999/retrieve")
 
     standings_json = response.json()
     standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])

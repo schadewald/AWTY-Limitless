@@ -67,5 +67,17 @@ services:
     volumes:
       - ./ClientServerContainer:/ClientServerContainer
 
+  gateway:
+    build: ./APIGatewayServerContainer
+    depends_on:
+      - nbadb
+      - airflow_webserver
+      - dashboard
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./APIGatewayServerContainer:/APIGatewayServerContainer
+
+
 volumes:
   airflow_dbdata:
