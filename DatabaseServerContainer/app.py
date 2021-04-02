@@ -32,6 +32,24 @@ def update_db():
     return "Data Base Updated"
 
 
+@app.route('/db/update/elo', methods=['POST'])
+def update_elo():
+    data = request.get_json()
+    # below clears db before new data / this needs to be removed when not in development
+    db.db.ELO.remove({})
+    db.db.ELO.insert(data)
+    return "Data Base Updated"
+
+
+@app.route('/db/update/schedule', methods=['POST'])
+def update_schedule():
+    data = request.get_json()
+    # below clears db before new data / this needs to be removed when not in development
+    db.db.Schedule.remove({})
+    db.db.Schedule.insert(data)
+    return "Data Base Updated"
+
+
 # this can be used each time the database is reset with up to date stats
 @app.route('/db/clear')
 def clear_db():
@@ -43,6 +61,33 @@ def clear_db():
 @app.route('/db/retrieve')
 def retrieve_db():
     query = db.db.NBA.find()
+    output = {}
+    i = 0
+    for x in query:
+        output[i] = x
+        output[i].pop('_id')
+        i += 1
+    return jsonify(output)
+
+
+# get current stats
+@app.route('/db/retrieve/elo')
+def retrieve_elo():
+    query = db.db.ELO.find()
+    output = {}
+    i = 0
+    for x in query:
+        output[i] = x
+        output[i].pop('_id')
+        i += 1
+    return jsonify(output)
+
+# get current stats
+
+
+@app.route('/db/retrieve/schedule')
+def retrieve_schedule():
+    query = db.db.Schedule.find()
     output = {}
     i = 0
     for x in query:
