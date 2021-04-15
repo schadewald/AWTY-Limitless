@@ -51,6 +51,30 @@ def retrieve_db():
         i += 1
     return jsonify(output)
 
+# get current stats for east
+@app.route('/db/retrieve/east')
+def retrieve_db_east():
+    query = db.db.NBA.find()
+    output = {}
+    i = 0
+    for x in query:
+        output[i] = x
+        output[i].pop('_id')
+        i += 1
+    return jsonify(output)
+
+# get current stats for west
+@app.route('/db/retrieve/west')
+def retrieve_db_west():
+    query = db.db.NBA.find()
+    output = {}
+    i = 0
+    for x in query:
+        output[i] = x
+        output[i].pop('_id')
+        i += 1
+    return jsonify(output)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4321)

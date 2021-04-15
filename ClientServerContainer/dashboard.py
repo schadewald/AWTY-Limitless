@@ -66,21 +66,21 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
 
-    response = requests.get("http://gateway:9999/retrieve")
-    if response.status_code != 200:
-        return 'You do not have access to this.'
-
-    standings_json = response.json()
-    standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
-    df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
-                                      'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
-    df_west_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'West']
-    df_east_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'East']
-
     if pathname == "/":
         # return html.P("This is the content of the home page!")
         return html.P("Welcome to AWTY!")
     elif pathname == "/eastern-conference":
+
+        response = requests.get("http://gateway:9999/retrieve/east")
+        if response.status_code != 200:
+            return 'You do not have access to this.'
+
+        standings_json = response.json()
+        standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
+        df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
+                                          'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
+        df_east_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'East']
+
         return html.Div(children=[
             dash_table.DataTable(
                 id='east-standings-table',
@@ -90,6 +90,17 @@ def render_page_content(pathname):
             html.Div(id='standing-table-container')
         ])
     elif pathname == "/western-conference":
+
+        response = requests.get("http://gateway:9999/retrieve/west")
+        if response.status_code != 200:
+            return 'You do not have access to this.'
+
+        standings_json = response.json()
+        standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
+        df_cleaned_standings = standings[['TeamCity', 'TeamName', 'Conference', 'ConferenceRecord', 'PlayoffRank',
+                                          'Division', 'DivisionRecord', 'DivisionRank', 'WINS', 'LOSSES', 'WinPCT']]
+        df_west_standings = df_cleaned_standings[df_cleaned_standings['Conference'] == 'West']
+
         return html.Div(children=[
             dash_table.DataTable(
                 id='west_standings-table',

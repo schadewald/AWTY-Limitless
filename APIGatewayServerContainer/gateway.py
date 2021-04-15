@@ -175,9 +175,7 @@ def index():
 
 
 @app.route('/retrieve', methods=['GET', 'POST', "DELETE"])
-@cross_origin(headers=["Content-Type", "Authorization"])
-@requires_auth
-def proxy():
+def proxy1():
     global DB_RETRIEVE
     if request.method == 'GET':
         resp = requests.get(f'{DB_RETRIEVE}retrieve')
@@ -195,6 +193,29 @@ def proxy():
     # this currently does not need a DELETE methods, but going to leave here for future reference
     elif request.method == 'DELETE':
         resp = requests.delete(f'{DB_RETRIEVE}retrieve').content
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+
+
+@app.route('/retrieve/east', methods=['GET'])
+def proxy2():
+    global DB_RETRIEVE
+    if request.method == 'GET':
+        resp = requests.get(f'{DB_RETRIEVE}retrieve/east')
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+
+@app.route('/retrieve/west', methods=['GET'])
+@cross_origin(headers=["Content-Type", "Authorization"])
+@requires_auth
+def proxy3():
+    global DB_RETRIEVE
+    if request.method == 'GET':
+        resp = requests.get(f'{DB_RETRIEVE}retrieve/west')
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
         response = Response(resp.content, resp.status_code, headers)
         return response
 
