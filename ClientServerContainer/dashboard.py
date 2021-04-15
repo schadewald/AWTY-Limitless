@@ -10,6 +10,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import base64
 import requests
+import json
 import pandas as pd
 
 LIMITLESS_LOGO = "limitless-logo.png"
@@ -66,6 +67,8 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 def render_page_content(pathname):
 
     response = requests.get("http://gateway:9999/retrieve")
+    if response.status_code != 200:
+        return 'You do not have access to this.'
 
     standings_json = response.json()
     standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
