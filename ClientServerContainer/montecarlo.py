@@ -63,4 +63,4 @@ def getSchedule():
     return schedule
 
 
-print(getStandings())
+print(getSchedule())
