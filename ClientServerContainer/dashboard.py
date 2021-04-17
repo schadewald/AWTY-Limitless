@@ -1,6 +1,3 @@
-# NBA libraries
-from nba_api.stats.endpoints import leaguegamefinder, leaguestandings, playergamelog
-
 # Dash libraries
 import dash
 import dash_table
@@ -47,7 +44,6 @@ CONTENT_STYLE = {
 
 sidebar = html.Div(
     [
-        # html.H2("Menu", className="display-4"),
         html.Img(
             src="data:image/png;base64,{}".format(encode_image.decode()),
             style={'height': '20%', 'width': '100%'}
@@ -58,6 +54,7 @@ sidebar = html.Div(
                 dbc.NavLink("Home", href="/", active="exact"),
                 dbc.NavLink("Eastern Conference", href="/eastern-conference", active="exact"),
                 dbc.NavLink("Western Conference", href="/western-conference", active="exact"),
+                dbc.NavLink("Team View", href="/team-view", active="exact")
             ],
             vertical=True,
             pills=True,
@@ -94,6 +91,8 @@ def render_page_content(pathname):
             ),
             html.Div(id='standing-table-container')
         ])
+    elif pathname == "/team-view":
+        return html.P("Team view page")
     # If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
         [
