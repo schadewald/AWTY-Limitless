@@ -10,6 +10,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import base64
 import requests
+import json
 import pandas as pd
 from flask import redirect
 
@@ -39,7 +40,6 @@ CONTENT_STYLE = {
 
 sidebar = html.Div(
     [
-        # html.H2("Menu", className="display-4"),
         html.Img(
             src="data:image/png;base64,{}".format(encode_image.decode()),
             style={'height': '20%', 'width': '100%'}
