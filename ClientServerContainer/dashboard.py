@@ -13,6 +13,8 @@ import requests
 import json
 import pandas as pd
 import flask
+import plotly.express as px
+import plotly.graph_objs as go
 
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
@@ -107,9 +109,23 @@ def render_page_content(pathname):
         ])
     elif pathname == "/team-view":
         if 'session' in flask.request.cookies:
-            return "You are permitted to view premium content!"
+            response = requests.get("http://gateway:9999/retrieve")
+
+            standings_json = response.json()
+            standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
+            df_cleaned_standings = standings[['TeamName', 'WinPCT']]
+
+            return dcc.Graph(id='premium',
+                             config={'displayModeBar': False},
+                             animate=True,
+                             figure=px.line(df_cleaned_standings,
+                                            x='TeamName',
+                                            y='WinPCT')
+                             )
+
         return html.Div([
-            dbc.NavLink(html.Img(src="https://i.ibb.co/K5y4f6N/vip-button.png"), href="http://localhost:3000", active="exact")
+            dbc.NavLink(html.Img(src="https://i.ibb.co/K5y4f6N/vip-button.png"), href="http://localhost:3000",
+                        active="exact")
         ])
 
     # If the user tries to reach a different page, return a 404 message
