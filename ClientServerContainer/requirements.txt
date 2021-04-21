@@ -2,3 +2,4 @@ nba-api==1.1.9
 dash==1.19.0
 dash-bootstrap-components==0.11.3
 pandas==1.2.3
+flask

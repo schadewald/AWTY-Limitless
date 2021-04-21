@@ -12,7 +12,7 @@ import base64
 import requests
 import json
 import pandas as pd
-from flask import redirect
+import flask
 
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
@@ -106,9 +106,9 @@ def render_page_content(pathname):
             html.Div(id='standing-table-container')
         ])
     elif pathname == "/team-view":
-        if requests.cookies == null:
-            return html.P("You Have Premium Access!")
-        return html.P("Ye-Shall_not-Pass!")
+        if 'session' in flask.request.cookies:
+            return "You are permitted to view premium content!"
+        return "Premium access is denied!"
 
     # If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
