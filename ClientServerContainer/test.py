@@ -9,4 +9,5 @@ df = pd.json_normalize(schedule_json, record_path=['lscd', 'mscd', 'g'])
 # print(df.columns.values)
 
 schedule = df[['gid', 'gdte', 'v.tn', 'h.tn']]
+schedule.rename({'v.tn': 'away', 'h.tn': 'home'})
 print(schedule.head())
