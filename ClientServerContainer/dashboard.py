@@ -63,9 +63,9 @@ content = html.Div(id="page-content", style=CONTENT_STYLE)
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
+
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
-
     if pathname == "/":
         # return html.P("This is the content of the home page!")
         return html.P("Welcome to AWTY!")
@@ -108,7 +108,9 @@ def render_page_content(pathname):
     elif pathname == "/team-view":
         if 'session' in flask.request.cookies:
             return "You are permitted to view premium content!"
-        return "Premium access is denied!"
+        return html.Div([
+            dbc.NavLink(html.Img(src="https://i.ibb.co/K5y4f6N/vip-button.png"), href="http://localhost:3000", active="exact")
+        ])
 
     # If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
