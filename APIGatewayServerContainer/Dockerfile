@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:3
 
 MAINTAINER AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
 

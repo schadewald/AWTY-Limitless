@@ -53,8 +53,8 @@ sidebar = html.Div(
                 dbc.NavLink("Home", href="/", active="exact"),
                 dbc.NavLink("Eastern Conference", href="/eastern-conference", active="exact"),
                 dbc.NavLink("Western Conference", href="/western-conference", active="exact"),
-                dbc.NavLink("Team View", href="http://auth0:3000/team_view", active="exact"),
-                dbc.NavLink("Profile", href="http://auth0:3000/profile", active="exact"),
+                dbc.NavLink("Team View", href="http://localhost:3000/team_view", active="exact"),
+                dbc.NavLink("Profile", href="http://localhost:3000/profile", active="exact"),
             ],
             vertical=True,
             pills=True,
@@ -71,8 +71,7 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
     if pathname == "/":
-        # return html.P("This is the content of the home page!")
-        return html.P("Welcome to AWTY!")
+        return html.Img(src="https://i.ibb.co/ZdZdGzY/Presentation1.gif")
     elif pathname == "/eastern-conference":
 
         response = requests.get("http://gateway:9999/retrieve/east")

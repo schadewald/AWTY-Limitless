@@ -165,7 +165,7 @@ def logout():
 
 @app.route('/limitless')
 def limitless():
-    return redirect("http://dashboard:8050/")
+    return redirect("http://localhost:8050/")
 
 
 @app.route('/dashboard')
@@ -189,7 +189,7 @@ def profile():
 def team_view():
     global authorized
     authorized = True
-    return redirect("http://dashboard:8050/team-view", code=302)
+    return redirect("http://localhost:8050/team-view", code=302)
 
 
 @app.route('/authorized')
