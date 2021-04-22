@@ -1,7 +1,3 @@
-# NBA libraries
-from nba_api.stats.endpoints import leaguegamefinder, leaguestandings, playergamelog
-
-# Dash libraries
 import dash
 import dash_table
 import dash_html_components as html
@@ -10,19 +6,14 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import base64
 import requests
-import json
 import pandas as pd
-import flask
-from flask import jsonify
 import plotly.express as px
-import plotly.graph_objs as go
 
 LIMITLESS_LOGO = "limitless-logo.png"
 encode_image = base64.b64encode(open(LIMITLESS_LOGO, 'rb').read())
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-# the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
     "position": "fixed",
     "top": 0,
@@ -33,8 +24,6 @@ SIDEBAR_STYLE = {
     "background-color": "#f8f9fa",
 }
 
-# the styles for the main content position it to the right of the sidebar and
-# add some padding.
 CONTENT_STYLE = {
     "margin-left": "18rem",
     "margin-right": "2rem",
