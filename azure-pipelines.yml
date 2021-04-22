@@ -38,7 +38,6 @@ stages:
         tags: |
           $(tag)
 
-version: '3.7'
 services:
   nbadb:
     build: ./DatabaseServerContainer
