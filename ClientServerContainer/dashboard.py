@@ -13,6 +13,7 @@ import requests
 import json
 import pandas as pd
 import flask
+from flask import jsonify
 import plotly.express as px
 import plotly.graph_objs as go
 
@@ -52,8 +53,8 @@ sidebar = html.Div(
                 dbc.NavLink("Home", href="/", active="exact"),
                 dbc.NavLink("Eastern Conference", href="/eastern-conference", active="exact"),
                 dbc.NavLink("Western Conference", href="/western-conference", active="exact"),
-                dbc.NavLink("Team View", href="http://localhost:3000/login_team_view", active="exact"),
-                dbc.NavLink("Profile", href="http://localhost:3000/login_profile", active="exact"),
+                dbc.NavLink("Team View", href="http://auth0:3000/team_view", active="exact"),
+                dbc.NavLink("Profile", href="http://auth0:3000/profile", active="exact"),
             ],
             vertical=True,
             pills=True,
@@ -109,7 +110,8 @@ def render_page_content(pathname):
             html.Div(id='standing-table-container')
         ])
     elif pathname == "/team-view":
-        if 'session' in flask.request.cookies:
+
+        if requests.get("http://auth0:3000/authorized").status_code == 301:
             response = requests.get("http://gateway:9999/retrieve")
 
             standings_json = response.json()
@@ -127,6 +129,7 @@ def render_page_content(pathname):
         return html.Div([
             dbc.NavLink(html.Img(src="https://i.ibb.co/K5y4f6N/vip-button.png"), href="http://localhost:3000",
                         active="exact")
+
         ])
 
     # If the user tries to reach a different page, return a 404 message

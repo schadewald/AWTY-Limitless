@@ -63,6 +63,7 @@ services:
       - nbadb
       - airflow_webserver
       - gateway
+      - auth0
     ports:
       - "8050:8050"
     volumes:
@@ -78,6 +79,14 @@ services:
     volumes:
       - ./APIGatewayServerContainer:/APIGatewayServerContainer
 
+  auth0:
+    build: ./AuthGaurdServerContainer
+    env_file:
+      - AuthGaurdServerContainer/.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./AuthGaurdServerContainer:/AuthGaurdServerContainer
 
 volumes:
   airflow_dbdata:
