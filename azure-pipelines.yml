@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- master
+- azure-pipelines
 
 resources:
 - repo: self
@@ -37,3 +37,75 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+version: '3.7'
+services:
+  nbadb:
+    build: ./DatabaseServerContainer
+    ports:
+      - "4321:4321"
+    volumes:
+      - ./DatabaseServerContainer:/DatabaseServerContainer
+
+  airflow_postgres:
+    image: postgres:9.6.2
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - "airflow_dbdata:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
+  airflow_initdb:
+    build: ./DataServerContainer
+    depends_on:
+      - airflow_postgres
+      - nbadb
+    volumes:
+      - ./DataServerContainer/airflow.cfg:/usr/local/airflow/airflow.cfg
+      - ./DataServerContainer/variables:/usr/local/airflow/variables
+    command:
+      - /bin/bash
+      - -c
+      - |
+        airflow initdb
+        if [[ -e /usr/local/airflow/variables/dev/all.json ]]; then
+            airflow variables -i /usr/local/airflow/variables/dev/all.json
+        fi
+        # Enable this if you choose to have RBAC UI activated in the webserver
+        # airflow create_user -r Admin -u airflow -e airflow@airflow.com -f Air -l Flow -p airflow
+
+  airflow_webserver:
+    build: ./DataServerContainer
+    restart: always
+    depends_on:
+      - airflow_initdb
+      - nbadb
+    volumes:
+      - ./DataServerContainer/airflow.cfg:/usr/local/airflow/airflow.cfg
+      - ./DataServerContainer/dags:/usr/local/airflow/dags
+      - ./DataServerContainer/plugins:/usr/local/airflow/plugins
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+    command: webserver
+    healthcheck:
+      test: [ "CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  dashboard:
+    build: ./ClientServerContainer
+    depends_on:
+      - nbadb
+      - airflow_webserver
+    ports:
+      - "8050:8050"
+    volumes:
+      - ./ClientServerContainer:/ClientServerContainer
+
+volumes:
+  airflow_dbdata:
