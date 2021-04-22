@@ -105,6 +105,3 @@ services:
       - "8050:8050"
     volumes:
       - ./ClientServerContainer:/ClientServerContainer
-
-volumes:
-  airflow_dbdata:
