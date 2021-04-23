@@ -13,7 +13,7 @@ would otherwise need extensive knowledge of data gathering and statistical techn
 <b>To run our project:</b>
 
 1. cd into the project directory.
-2. sudo docker-compose up -d
+2. sudo docker-compose up -d --build
     1. Dash Board
         1. WebApp http://localhost:8050
     2. Airflow Access
@@ -21,8 +21,9 @@ would otherwise need extensive knowledge of data gathering and statistical techn
         2. Flower http://localhost:5555
     3. NBA database MongoDB
         1. Server Test http://localhost:4321
-        2. Load DB with dummy dataset. http://localhost:4321/db/update
-        3. View dataset. http://localhost:4321/db/retrieve
-        4. Clear all data. http://localhost:4321/db/clear
+    4. API Gateway
+        1. Server Test http://localhost:9999
+    5. Auth Gaurd 
+        1. Server Test http://localhost:3000
 3. Turn off services.
     2. sudo docker-compose down
