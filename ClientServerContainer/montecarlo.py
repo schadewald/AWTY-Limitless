@@ -2,7 +2,9 @@ import random
 import pandas as pd
 import requests
 import numpy as np
-
+import pycurl
+import json
+from io import StringIO 
 
 class MonteCarlo():
     def __init__(self, num_sims):
@@ -146,9 +148,57 @@ class MonteCarlo():
         print(self.master_table)
 
 
-numSims = 10  # set to 10 simulations for testing purposes, runs slower as numSims increase
+    def store_results(self):
+            results_json = self.master_table.to_json(orient='records')
+            parsed = json.loads(results_json)
+            test = json.dumps(parsed, indent=4)
+            print(test)
+            #API_ENDPOINT = "http://nbadb:4321/db/update/results"
+            #res = requests.post(url=API_ENDPOINT, data=results_json)
+            #print(results_json)
+            
+            curl = pycurl.Curl()
+            curl.setopt(pycurl.URL, 'http://nbadb:4321/db/update/results')
+            curl.setopt(pycurl.HTTPHEADER, ['Accept: application/json',
+                                            'Content-Type: application/json'])
+            curl.setopt(pycurl.POST, 1)
+
+            # If you want to set a total timeout, say, 3 seconds
+            curl.setopt(pycurl.TIMEOUT_MS, 10000)
+
+            ## depending on whether you want to print details on stdout, uncomment either
+            # curl.setopt(pycurl.VERBOSE, 1) # to print entire request flow
+            ## or
+            # curl.setopt(pycurl.WRITEFUNCTION, lambda x: None) # to keep stdout clean
+
+            # preparing body the way pycurl.READDATA wants it
+            # NOTE: you may reuse curl object setup at this point
+            #  if sending POST repeatedly to the url. It will reuse
+            #  the connection.
+            body_as_dict = {"name": "abc", "path": "def", "target": "ghi"}
+            body_as_json_string = json.dumps(body_as_dict) # dict to json
+            body_as_file_object = StringIO(body_as_json_string)
+
+            body_as_json_string_mst = json.dumps(results_json)
+
+            # prepare and send. See also: pycurl.READFUNCTION to pass function instead
+            curl.setopt(pycurl.READDATA, body_as_file_object) 
+            curl.setopt(pycurl.POSTFIELDSIZE, len(body_as_json_string))
+            curl.perform()
+
+            # you may want to check HTTP response code, e.g.
+            status_code = curl.getinfo(pycurl.RESPONSE_CODE)
+            print ("Aww Snap Server returned HTTP status code {}".format(status_code))
+
+            # don't forget to release connection when finished
+            curl.close()
+            #'curl --header "Content-Type: application/json" --request POST --data @/usr/local/airflow/standings_dump.json http://nbadb:4321/db/update',
+            
+
+numSims = 1  # set to 10 simulations for testing purposes, runs slower as numSims increase
 sim = MonteCarlo(numSims)
 df = sim.prepare()
 for i in range(sim.num_sims):
     sim.simGame(df)
-sim.print_master()
+#sim.print_master()
+sim.store_results()
