@@ -56,7 +56,7 @@ def update_schedule():
 def update_results():
     data = request.get_json()
     # below clears db before new data / this needs to be removed when not in development
-    #db.db.Results.remove({})
+    db.db.Results.remove({})
     db.db.Results.insert(data)
     return "Data Base Updated"    
 
