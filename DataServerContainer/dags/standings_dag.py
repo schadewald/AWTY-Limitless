@@ -37,6 +37,12 @@ load_standings_task = BashOperator(
     dag=standings_dag
 )
 
+run_montecarlo_task = BashOperator(
+    task_id='run_montecarlo',
+    bash_command='python /usr/local/airflow/dags/montecarlo.py',
+    dag=standings_dag
+)
+
 # cleanup = BashOperator(
 #     task_id='cleanup_files',
 #     bash_command="rm DataServerContainer/*.json",
@@ -44,4 +50,4 @@ load_standings_task = BashOperator(
 # )
 
 
-get_standings_task >> load_standings_task
+get_standings_task >> load_standings_task >> run_montecarlo_task
