@@ -1,5 +1,67 @@
 # AWTY-Limitless
 
+folder/file: Contents (Project report, Scripts, ...) 
+                Detailed Explanations as you consider necessary
+   ...
+<pre><font color="#3465A4"><b>.</b></font>
+├── <font color="#3465A4"><b>APIGatewayServerContainer</b></font>
+│   ├── Dockerfile
+│   ├── gateway.py
+│   └── requirements.txt
+├── <font color="#3465A4"><b>AuthGaurdServerContainer</b></font>
+│   ├── constants.py
+│   ├── Dockerfile
+│   ├── <font color="#3465A4"><b>public</b></font>
+│   │   └── app.css
+│   ├── requirements.txt
+│   ├── server.py
+│   └── <font color="#3465A4"><b>templates</b></font>
+│       ├── home.html
+│       └── profile.html
+├── <font color="#3465A4"><b>ClientServerContainer</b></font>
+│   ├── dashboard.py
+│   ├── Dockerfile
+│   ├── elo.json
+│   ├── <font color="#75507B"><b>limitless-logo.png</b></font>
+│   ├── main.py
+│   ├── montecarlo.py
+│   ├── <font color="#3465A4"><b>__pycache__</b></font>
+│   │   └── test.cpython-39.pyc
+│   ├── requirements.txt
+│   ├── schedule.json
+│   ├── testapi.py
+│   └── test.py
+├── <font color="#3465A4"><b>DatabaseServerContainer</b></font>
+│   ├── app.py
+│   ├── db.py
+│   ├── Dockerfile
+│   ├── <font color="#3465A4"><b>__pycache__</b></font>
+│   │   └── db.cpython-39.pyc
+│   ├── requirements.txt
+│   └── sampleData.json
+├── <font color="#3465A4"><b>DataServerContainer</b></font>
+│   ├── airflow.cfg
+│   ├── <font color="#3465A4"><b>dags</b></font>
+│   │   ├── __init__.py
+│   │   ├── <font color="#3465A4"><b>__pycache__</b></font>
+│   │   │   └── standings_dag.cpython-37.pyc
+│   │   └── standings_dag.py
+│   ├── Dockerfile
+│   ├── <font color="#4E9A06"><b>entrypoint.sh</b></font>
+│   ├── <font color="#3465A4"><b>plugins</b></font>
+│   │   ├── __init__.py
+│   │   └── <font color="#3465A4"><b>__pycache__</b></font>
+│   │       └── __init__.cpython-37.pyc
+│   ├── requirements.txt
+│   └── <font color="#3465A4"><b>variables</b></font>
+│       └── <font color="#3465A4"><b>dev</b></font>
+│           └── all.json
+├── docker-compose.yml
+├── README.md
+└── test.json
+</pre>
+    
+
 # Executive Summary
 
 With the sports analytics and sports betting industry booming in recent years, there has become a bigger need for
