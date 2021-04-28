@@ -2,7 +2,10 @@ import random
 import pandas as pd
 import requests
 import numpy as np
-
+import pycurl
+import json
+from io import StringIO
+from io import BytesIO 
 
 class MonteCarlo():
     def __init__(self, num_sims):
@@ -146,9 +149,42 @@ class MonteCarlo():
         print(self.master_table)
 
 
-numSims = 10  # set to 10 simulations for testing purposes, runs slower as numSims increase
+    def send_REST_request(self, ip, port, payload):
+        try:
+            response = BytesIO()
+            headers = ['Accept: application/json','Content-Type: application/json']
+            url = "http://%s:%s/db/update/results" %(
+                ip, port)
+            payload_as_file_object = StringIO(payload)
+            conn = pycurl.Curl()
+            conn.setopt(pycurl.URL, url)
+            conn.setopt(pycurl.HTTPHEADER, headers)
+            conn.setopt(pycurl.POST, 1)
+            conn.setopt(pycurl.READDATA, payload_as_file_object)
+            conn.setopt(pycurl.POSTFIELDSIZE, len(payload)) 
+            conn.setopt(pycurl.POSTFIELDS, '%s'%(payload))
+            conn.setopt(pycurl.WRITEFUNCTION, response.write)
+            conn.perform()
+            return response.getvalue()
+        except:
+            return None 
+
+
+    def store_results(self):
+
+            results_json = self.master_table.to_json(orient='records')
+            ip = 'nbadb'
+            port = '4321'
+            payload = results_json
+
+            print(self.send_REST_request(ip, port, payload))
+
+           
+
+numSims = 50  # set to 10 simulations for testing purposes, runs slower as numSims increase
 sim = MonteCarlo(numSims)
 df = sim.prepare()
 for i in range(sim.num_sims):
     sim.simGame(df)
-sim.print_master()
+#sim.print_master()
+sim.store_results()

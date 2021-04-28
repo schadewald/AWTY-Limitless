@@ -100,18 +100,21 @@ def render_page_content(pathname):
     elif pathname == "/team-view":
 
         if requests.get("http://auth0:3000/authorized").status_code == 301:
-            response = requests.get("http://gateway:9999/retrieve")
+            response = requests.get("http://gateway:9999/results")
 
-            standings_json = response.json()
-            standings = pd.json_normalize(standings_json, record_path=['0', 'Standings'])
-            df_cleaned_standings = standings[['TeamName', 'WinPCT']]
+            results_json = response.json()
+            results = pd.DataFrame.from_dict(results_json)
+
+            results_df = results.transpose()
+            print(results_df)
+            results_df_cleaned = results_df[['TeamName', 'playoff_pct']]
 
             return dcc.Graph(id='premium',
                              config={'displayModeBar': False},
                              animate=True,
-                             figure=px.line(df_cleaned_standings,
+                             figure=px.line(results_df_cleaned,
                                             x='TeamName',
-                                            y='WinPCT')
+                                            y='playoff_pct')
                              )
 
         return html.Div([

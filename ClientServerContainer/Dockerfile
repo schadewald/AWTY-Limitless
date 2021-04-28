@@ -3,7 +3,7 @@ FROM python:3
 MAINTAINER AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
 
 RUN apt-get update -y && \
-    apt-get install -y python3-pip python3-dev
+    apt-get install -y python3-pip python3-dev curl
 
 COPY requirements.txt /ClientServerContainer/requirements.txt
 
