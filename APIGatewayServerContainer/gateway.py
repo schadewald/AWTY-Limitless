@@ -56,5 +56,16 @@ def proxy3():
         return response
 
 
+@app.route('/results', methods=['GET'])
+def proxy4():
+    global DB_RETRIEVE
+    if request.method == 'GET':
+        resp = requests.get(f'{DB_RETRIEVE}results')
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9999)

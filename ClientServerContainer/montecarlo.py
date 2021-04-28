@@ -181,7 +181,7 @@ class MonteCarlo():
 
            
 
-numSims = 1  # set to 10 simulations for testing purposes, runs slower as numSims increase
+numSims = 50  # set to 10 simulations for testing purposes, runs slower as numSims increase
 sim = MonteCarlo(numSims)
 df = sim.prepare()
 for i in range(sim.num_sims):
