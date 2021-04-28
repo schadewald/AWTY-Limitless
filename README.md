@@ -1,64 +1,25 @@
 # AWTY-Limitless
 
-folder/file: Contents (Project report, Scripts, ...) 
-                Detailed Explanations as you consider necessary
-   ...
-<pre><font color="#3465A4"><b>.</b></font>
-├── <font color="#3465A4"><b>APIGatewayServerContainer</b></font>
-│   ├── Dockerfile
-│   ├── gateway.py
-│   └── requirements.txt
-├── <font color="#3465A4"><b>AuthGaurdServerContainer</b></font>
-│   ├── constants.py
-│   ├── Dockerfile
-│   ├── <font color="#3465A4"><b>public</b></font>
-│   │   └── app.css
-│   ├── requirements.txt
-│   ├── server.py
-│   └── <font color="#3465A4"><b>templates</b></font>
-│       ├── home.html
-│       └── profile.html
-├── <font color="#3465A4"><b>ClientServerContainer</b></font>
-│   ├── dashboard.py
-│   ├── Dockerfile
-│   ├── elo.json
-│   ├── <font color="#75507B"><b>limitless-logo.png</b></font>
-│   ├── main.py
-│   ├── montecarlo.py
-│   ├── <font color="#3465A4"><b>__pycache__</b></font>
-│   │   └── test.cpython-39.pyc
-│   ├── requirements.txt
-│   ├── schedule.json
-│   ├── testapi.py
-│   └── test.py
-├── <font color="#3465A4"><b>DatabaseServerContainer</b></font>
-│   ├── app.py
-│   ├── db.py
-│   ├── Dockerfile
-│   ├── <font color="#3465A4"><b>__pycache__</b></font>
-│   │   └── db.cpython-39.pyc
-│   ├── requirements.txt
-│   └── sampleData.json
-├── <font color="#3465A4"><b>DataServerContainer</b></font>
-│   ├── airflow.cfg
-│   ├── <font color="#3465A4"><b>dags</b></font>
-│   │   ├── __init__.py
-│   │   ├── <font color="#3465A4"><b>__pycache__</b></font>
-│   │   │   └── standings_dag.cpython-37.pyc
-│   │   └── standings_dag.py
-│   ├── Dockerfile
-│   ├── <font color="#4E9A06"><b>entrypoint.sh</b></font>
-│   ├── <font color="#3465A4"><b>plugins</b></font>
-│   │   ├── __init__.py
-│   │   └── <font color="#3465A4"><b>__pycache__</b></font>
-│   │       └── __init__.cpython-37.pyc
-│   ├── requirements.txt
-│   └── <font color="#3465A4"><b>variables</b></font>
-│       └── <font color="#3465A4"><b>dev</b></font>
-│           └── all.json
-├── docker-compose.yml
-├── README.md
-└── test.json
+Folder Structure
+<pre><font color="#3465A4"><b>AWTY-Limitless</b></font>
+   ├── <font color="#3465A4"><b>APIGatewayServerContainer</b></font>
+   │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Gateway"</i></font>
+   ├── <font color="#3465A4"><b>AuthGaurdServerContainer</b></font>
+   │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Gaurd"</i></font>
+   ├── <font color="#3465A4"><b>ClientServerContainer</b></font>
+   │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Dashboard"</i></font>
+   ├── <font color="#3465A4"><b>DatabaseServerContainer</b></font>
+   │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Database"</i></font>
+   ├── <font color="#3465A4"><b>DataServerContainer</b></font>
+   │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Scheduler"</i></font>
+   ├── docker-compose.yml <font color="#00ebe7"><i>"I build and run it all."</i></font>
+   ├── <font color="#b50909"><b>Final_Submission_Artifacts</b></font><font color="#09b531"><b> "GRADE ME"</b></font>
+   │   ├── Code_Scripts_DB.txt
+   │   ├── <font color="#b50909"><b>Manuals</b></font>
+   │   │   ├── Deployment_Installation.txt
+   │   │   └── User_Administrator.txt
+   │   └── Project_Report.txt
+   └── README.md
 </pre>
     
 
@@ -78,11 +39,15 @@ would otherwise need extensive knowledge of data gathering and statistical techn
 2. cd into the project root directory.
 3. sudo docker-compose up -d --build
     1. Dash Board
-        1. WebApp http://localhost:8050
-    2. Airflow Access
-	@@ -25,5 +26,5 @@ would otherwise need extensive knowledge of data gathering and statistical techn
-        1. Server Test http://localhost:9999
+        * WebApp http://localhost:8050
+    2. Scheduler Airflow Access
+        * Admin http://localhost:8080
+        * Flower http://localhost:5555
+    3. NBA database MongoDB
+        * Server Test http://localhost:4321
+    4. API Gateway
+        * Server Test http://localhost:9999
     5. Auth Gaurd 
-        1. Server Test http://localhost:3000
+        * Server Test http://localhost:3000
 4. Turn off services.
     2. sudo docker-compose down
