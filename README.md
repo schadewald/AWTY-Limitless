@@ -12,18 +12,15 @@ would otherwise need extensive knowledge of data gathering and statistical techn
 
 <b>To run our project:</b>
 
-1. cd into the project directory.
-2. sudo docker-compose up -d --build
+1. Install Docker: https://docs.docker.com/engine/install/
+2. cd into the project root directory.
+3. sudo docker-compose up -d --build
     1. Dash Board
         1. WebApp http://localhost:8050
     2. Airflow Access
-        1. Admin http://localhost:8080
-        2. Flower http://localhost:5555
-    3. NBA database MongoDB
-        1. Server Test http://localhost:4321
-    4. API Gateway
+	@@ -25,5 +26,5 @@ would otherwise need extensive knowledge of data gathering and statistical techn
         1. Server Test http://localhost:9999
     5. Auth Gaurd 
         1. Server Test http://localhost:3000
-3. Turn off services.
+4. Turn off services.
     2. sudo docker-compose down
