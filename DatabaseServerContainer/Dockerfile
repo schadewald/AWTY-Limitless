@@ -1,6 +1,6 @@
 FROM python:3
 
-MAINTAINER AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
+LABEL "value" AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
 
 RUN apt-get update -y && \
     apt-get install -y python3-pip python3-dev
@@ -15,4 +15,4 @@ COPY . /DatabaseServerContainer
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "app.py" ]
+CMD [ "database.py" ]

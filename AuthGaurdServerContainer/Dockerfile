@@ -1,12 +1,14 @@
 FROM python:3
 
-WORKDIR /home/app
+LABEL AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
+
+WORKDIR /AuthGaurdServerContainer
 
 #If we add the requirements and install dependencies first, docker can use cache if requirements don't change
-ADD requirements.txt /home/app
+ADD requirements.txt /AuthGaurdServerContainer
 RUN pip install --no-cache-dir -r requirements.txt
 
-ADD . /home/app
-CMD python server.py
+ADD . /AuthGaurdServerContainer
+CMD python gaurd.py
 
 EXPOSE 3000

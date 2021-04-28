@@ -1,4 +1,7 @@
 FROM puckel/docker-airflow:1.10.8
+
+LABEL AWTY "Brian Le, Chad Schadewald, Gary Marmon, Jairun DIemert"
+
 USER root
 
 COPY entrypoint.sh /entrypoint.sh

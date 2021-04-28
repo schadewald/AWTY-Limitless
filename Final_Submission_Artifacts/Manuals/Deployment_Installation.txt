@@ -1,0 +1,4 @@
+This file serves as a placeholder for a final project submission requirment.
+
+Link to Deployment/Installation Manual below.
+https://docs.google.com/document/d/1AwEcy0xrCWPhNiTXNR9uQQUUTEDDDazsUbc3S3skhzg/edit?usp=sharing
