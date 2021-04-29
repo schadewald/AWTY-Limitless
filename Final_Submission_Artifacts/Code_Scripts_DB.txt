@@ -1,4 +1,7 @@
-A. Source code 
-	https://github.com/schadewald/AWTY-Limitless.git 
-B. DB and scripts
-	Our MongoDB Atlas is hosted in the cloud on AWS, no setup needed.
+
+This file serves as a placeholder for a final project submission requirement.
+
+Link to our Code/Scripts & Database Info below.
+
+https://docs.google.com/document/d/1luGQvhgXf9_WMtVPG2yofRYQ0X3eD4cs_lot0K9F4sk/edit?usp=sharing
+
