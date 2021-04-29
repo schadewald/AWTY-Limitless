@@ -35,7 +35,7 @@ would otherwise need extensive knowledge of data gathering and statistical techn
 
 <b>To run our project:</b>
 
-1. Install Docker: https://docs.docker.com/engine/install/
+1. Install Docker: https://docs.docker.com/compose/install/
 2. cd into the project root directory.
 3. sudo docker-compose up -d --build
     1. Dash Board
