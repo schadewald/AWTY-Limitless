@@ -47,7 +47,7 @@ would otherwise need extensive knowledge of data gathering and statistical techn
         * Server Test http://localhost:4321
     4. API Gateway
         * Server Test http://localhost:9999
-    5. Auth Gaurd 
+    5. Auth Guard 
         * Server Test http://localhost:3000
 4. Turn off services.
     2. sudo docker-compose down
