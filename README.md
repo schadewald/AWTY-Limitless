@@ -14,7 +14,7 @@ Folder Structure
    │   ├── <font color="#eb7100"><i>"Code/Scripts to build the Scheduler"</i></font>
    ├── docker-compose.yml <font color="#00ebe7"><i>"I build and run it all."</i></font>
    ├── <font color="#b50909"><b>Final_Submission_Artifacts</b></font><font color="#09b531"><b> "GRADE ME"</b></font>
-   │   ├── Code_Scripts_DB.txt
+   │   ├── <a href="https://docs.google.com/document/d/1luGQvhgXf9_WMtVPG2yofRYQ0X3eD4cs_lot0K9F4sk/edit?usp=sharing" target="_top">Code_Scripts_DB.txt</a>
    │   ├── <font color="#b50909"><b>Manuals</b></font>
    │   │   ├── <a href="https://docs.google.com/document/d/1AwEcy0xrCWPhNiTXNR9uQQUUTEDDDazsUbc3S3skhzg/edit?usp=sharing" target="_top">Deployment_Installation.txt</a>
    │   │   └── <a href="https://docs.google.com/document/d/1du1nYOVQMsAhM0N5b1_5PZ0YJF5IKCIBt4whIkw76C0/edit?usp=sharing" target="_top">User_Administrator.txt</a>
