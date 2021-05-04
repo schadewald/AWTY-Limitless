@@ -1,8 +1,8 @@
 from flask_pymongo import pymongo
 
 client = pymongo.MongoClient(
-    "mongodb+srv://AWTY:Limitless@cluster0.zodbm.mongodb.net/Limitless?retryWrites=true&w=majority")
-db = client.get_database('Limitless')
+    "mongodb+srv://<ORGANIZATION>:<PASSWORD>@cluster0.zodbm.mongodb.net/<COLLECTION>?retryWrites=true&w=majority")
+db = client.get_database('<COLLECTION>')
 NBA = pymongo.collection.Collection(db, 'NBA')
 Schedule = pymongo.collection.Collection(db, 'Schedule')
 ELO = pymongo.collection.Collection(db, 'ELO')
